@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <title>Meesho</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: hsl(299, 96%, 11%);
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 6px 10px;
+        }
+
+        .nav-links a:hover {
+            
+            color:white;
+            border-radius: 4px;
+        }
+
+
+
+        .carousel {
+            width: 100%;
+            max-width: 1500px;
+            height: 400px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            animation: slide 9s infinite;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            33% {
+                transform: translateX(-50%);
+            }
+
+            66% {
+                transform: translateX(-200%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shopping {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #f8f8f8;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .wears {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f5f5f5;
+        }
+
+        .dress {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dress img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .dress h3 {
+            font-size: 16px;
+        }
+
+        .images {
+            padding: 40px;
+            border-radius: 30%;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .brands img {
+            width: 120px;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        .rates {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 30px;
+        }
+
+        .rate1 {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rate1:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .rate1 img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .rate1 h1 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 12px 0 6px;
+            text-transform: capitalize;
+        }
+
+        .rate1 p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff3f6c;
+        }
+
+
+
+        .footer .nav-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer {
+            background-color: hsl(299, 96%, 11%);
+            color: #fff;
+            padding: 40px 0 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 15px;
+            color: #f4b400;
+        }
+
+        .footer-box p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-box ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            background-color:hsl(299, 96%, 11%);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-box {
+                width: 100%;
+            }
+        }
+
+        .icon {
+            color: #ccc;
+            display: flex;
+            gap: 15px;
+            font-size: 25px;
+        }
+
+        .icon i {
+            margin-right: 15px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 160px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: black;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./script.js"></script>
+
+    <nav class="navbar d-flex justify-content-between align-items-center">
+        <div class="logo"><img
+                src="https://static.toiimg.com/thumb/msid-100862147,width-1280,height-720,imgsize-4660,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                width="50" height="50"></div>
+
+           <ul class="nav-links">
+            <li class="dropdown">
+                <a href="kits wear.html">Kids▾</a>
+                <ul class="dropdown-menu p-5">
+                    <li> <a href="Toys">Toys</a></li>
+                    <li><a href="Boys">boys</a></li>
+                    <li><a href="Girls">Girls</a></li>
+                    <li> <a href="Shirts">Babies</a></li>
+                    <li> <a href="Shirts">Clothing Sets</a></li>
+                    <li> <a href="Shirts">Frocks & Dresses</a></li>
+                    <li><a href="T-Shirt & Polos">Tshirts and polos</a></li>
+
+
+                </ul>
+
+            </li>
+            <li class="dropdown">
+                <a href="menswear.html">Men▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Summer tshirts</a></li>
+                    <li> <a href="toys">Shirts</a></li>
+                    <li> <a href="toys">Tshirt combos</a></li>
+
+                    <li> <a href="toys">Bottom wear jeans</a></li>
+
+                    <li> <a href="toys">Cargos/trowsers</a></li>
+                    <li> <a href="toys">dhotis/lungis</a></li>
+                </ul>
+
+            </li>
+            <li class="dropdown">
+                <a href="sarees.html">Sarees▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">All sarees</a></li>
+                    <li> <a href="toys">Georgette sarees</a></li>
+                    <li> <a href="toys">Chiffon sarees</a></li>
+                    <li> <a href="toys">Cotton sarees</a></li>
+                    <li> <a href="toys">Net sarees</a></li>
+                    <li> <a href="toys">Silk sarees</a></li>
+                    <li> <a href="toys">New collections</a></li>
+                    <li> <a href="toys">Bridal sarees</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="westerns.html">Western▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">All bottom wears</a></li>
+                    <li> <a href="toys">Jeans and jeggings</a></li>
+                    <li> <a href="toys">Palazzos</a></li>
+                    <li> <a href="toys">Trousers & pands</a></li>
+                    <li> <a href="toys">Leggings</a></li>
+                    <li> <a href="toys">Shorts and skirts</a></li>
+                    <li> <a href="toys">Tshirts</a></li>
+                    <li> <a href="toys"></a>Skirts</li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="home appliances.html">Home appliances▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Speakers</a></li>
+                    <li> <a href="toys">Cases and covers</a></li>
+                    <li> <a href="toys">Bluetooth earbuds</a></li>
+                    <li> <a href="toys">Wired earphone</a></li>
+                    <li> <a href="toys">Accessories mobile holders</a></li>
+                    <li> <a href="toys">Mobile chargers and cables</a></li>
+                    <li> <a href="toys">Power banks</a></li>
+                    <li> <a href="toys">Microphone</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="cosmetics.html">Cosmetics▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">LIpstick</a></li>
+                    <li> <a href="toys">Eye shadow and liner</a></li>
+                    <li> <a href="toys">Face makeup</a></li>
+                    <li> <a href="toys">Makeup kits and combos</a></li>
+                    <li> <a href="toys">Hair curlers</a></li>
+                    <li> <a href="toys">Nail makeup</a></li>
+                    <li> <a href="toys">Brushes and accessories</a></li>
+                    <li> <a href="toys">Hair removal</a></li>
+                    <li><a href="toys">Perfumes and more</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="womens wear.html">Womens▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Tops and Tunics</a></li>
+                    <li> <a href="toys">DResses</a></li>
+                    <li> <a href="toys">Tshirts</a></li>
+                    <li> <a href="toys">Gowns</a></li>
+                    <li> <a href="toys">Tops and bottom sets</a></li>
+                    <li> <a href="toys">Shirts</a></li>
+                    <li> <a href="toys">Jumpsuits</a></li>
+                    <li> <a href="toys">New trends</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+            <input type="text" class="form-control form-control-sm" placeholder="Search">
+
+        </div>
+        <div class="icon">
+            <i class="bi bi-person-circle"></i>
+
+            <i class="bi bi-cart-dash"></i>
+
+        </div>
+
+
+    </nav>
+
+    <div class="carousel">
+        <div class="slides">
+            <img src="https://i.pinimg.com/1200x/45/83/44/458344b3aaab87a6b3dffbcfb61f6f75.jpg">
+            <img src="https://i.pinimg.com/736x/b5/e8/f4/b5e8f40f058cd41615d062827cf768ee.jpg">
+            <img src="https://i.pinimg.com/1200x/bd/d0/94/bdd09439260b11313694e9301a11574b.jpg">
+        </div>
+    </div>
+
+    <div class="shopping">
+        <span>🔔 7 days easy return</span>
+        <span>💵 Cash on delivery</span>
+        <span>📭 Lowest price</span>
+    </div>
+
+    <section class="wears">
+        <div class="dress"><img src="https://i.pinimg.com/1200x/23/75/3b/23753ba93e437449bedbff49290c2934.jpg">
+            <h3>Ethnic Wear</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/736x/33/d0/c1/33d0c16028ccb1e96c064c9c9fe0b710.jpg">
+            <h3>Western wear</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/1200x/49/26/06/492606c1f030112d631618ad03edd825.jpg">
+            <h3>Mens wear</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/736x/75/4c/1d/754c1dbc90bdfffa3c2e68433f33853a.jpg">
+            <h3>Footwear</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/1200x/9f/1d/a4/9f1da4e5426c7d353352748da9b6667b.jpg">
+            <h3>beauty</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/736x/b0/51/51/b05151ec7663930c5f6e000aa4eda028.jpg">
+            <h3>grocerys</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/1200x/71/98/26/71982618a6bd3be9ad0dbdd583f0caad.jpg">
+            <h3>accesories</h3>
+        </div>
+        <div class="dress"><img src="https://i.pinimg.com/1200x/25/3e/13/253e13fa64e2d22af0a0e0c443af5574.jpg">
+            <h3>home decor</h3>
+        </div>
+
+
+
+
+
+    </section>
+    <div class="images">
+        <img src="https://images.meesho.com/images/marketing/1744698265981.webp" width="1450" hiegtht="1500">
+    </div>
+
+    <section class="images">
+        <h2 class="text-center mb-4">Original Brands<i class="bi bi-patch-check-fill"></i></h2>
+        <div class="image-grid">
+            <img src="https://i.pinimg.com/1200x/99/d2/8d/99d28d8f283fe4df68d08e2f4893840d.jpg">
+            <img src="https://i.pinimg.com/736x/a8/33/7f/a8337f50ffaf22a9f4c350ed63362ec8.jpg">
+            <img src="https://i.pinimg.com/736x/54/e3/c7/54e3c7710e921b35589fe1c172b0b6a3.jpg">
+            <img src="https://i.pinimg.com/736x/52/a3/ac/52a3ac8d66f5d853184a0c5b00ce0d33.jpg">
+            <img src="https://i.pinimg.com/736x/54/e3/c7/54e3c7710e921b35589fe1c172b0b6a3.jpg">
+            <img src="https://i.pinimg.com/736x/f0/20/75/f020759badb9e13478cec22e543a8e76.jpg">
+            <img src="https://i.pinimg.com/736x/50/58/49/5058497013ac5bc459ee5de01ebd21e4.jpg">
+            <img src="https://i.pinimg.com/736x/08/9e/d0/089ed000e7984c83bf2f10b2964cc5c2.jpg">
+            <img src="https://i.pinimg.com/736x/42/80/82/428082a398fb358c9b69ef7354d24432.jpg">
+            <img src="https://i.pinimg.com/736x/b6/8c/24/b68c240f4cc5bd0ef786dfd473ce3e29.jpg">
+            <img src="https://i.pinimg.com/736x/1c/f4/59/1cf459470005d48871880bd1f8f85468.jpg">
+            <img src="https://i.pinimg.com/1200x/72/90/bc/7290bc2600377c1a9868dafdc478d50d.jpg">
+
+
+        </div>
+        <marquee behavior="scroll" direction="left" scrollamount="6" loop="infinite">
+            <div class="brands">
+                <img src="https://i.pinimg.com/1200x/1b/96/3d/1b963d5b8c1ab581a778d4ffd38b7f4d.jpg">
+                <img src="https://i.pinimg.com/1200x/bc/c9/b6/bcc9b67c156c7bcd7b3fa381283ff9c1.jpg">
+                <img src="https://i.pinimg.com/736x/e9/03/88/e903882f203f96683a5885b4aacde301.jpg">
+                <img src="https://i.pinimg.com/736x/b6/fd/97/b6fd9750f018aa6630bf72aea300a71e.jpg">
+                <img src="https://i.pinimg.com/736x/a7/fe/78/a7fe7866f986219232e7ce7344680014.jpg">
+                <img src="https://i.pinimg.com/1200x/98/1a/bb/981abb1dde479c21204e2a6451ddebb1.jpg">
+                <img src="https://i.pinimg.com/736x/29/8e/1c/298e1cbebc80f80252b1f0afe01fb442.jpg">
+                <img src="https://i.pinimg.com/736x/99/f1/01/99f1011dad3ad375cf516e2db76ec691.jpg">
+                <img src="https://i.pinimg.com/1200x/10/2c/75/102c751440f4e63c9fc64c9e31ad3edf.jpg">
+                <img src="https://i.pinimg.com/736x/5c/ed/e0/5cede00af1d22863a4b5c8045c648a46.jpg">
+                <img src="https://i.pinimg.com/1200x/eb/b9/b5/ebb9b504a879b8450b61ec5e67f441df.jpg">
+                <img src="https://i.pinimg.com/736x/2a/36/46/2a3646b273ed2c8abfb5df5b012a41ea.jpg">
+
+
+            </div>
+        </marquee>
+        <div class="image">
+            <img src="https://i.pinimg.com/1200x/64/34/64/643464942c921d5c4f94ab7f79d7bb88.jpg" height="500"
+                width="1450">
+
+        </div>
+
+    </section>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/d4/06/24/d4062463592110ba713fe7ebc4d258e0.jpg" width="100"
+                height="200">
+            <h1>trendy frocks</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/59/7f/0d/597f0db4a0a5b1ff94deca0b975cc172.jpg" width="100"
+                height="200">
+            <h1>trendy maxi tops</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/ec/e1/a0/ece1a0962e14bd449aff2eeddc66bdd7.jpg" width="100" height="200">
+            <h1>trendy lehangas</h1>
+            <p>$550</p>
+        </div>
+
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/07/15/94/071594ef1e2c35ee970397299ea49cb2.jpg" width="100"
+                height="200">
+            <h1>trendy night wears</h1>
+            <p>$550</p>
+        </div>
+
+    </div>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://images.meesho.com/images/products/346396426/fn1z3_512.avif?width=360" width="100"
+                height="200">
+            <h1>trendy Kurtis</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://images.meesho.com/images/products/410128757/dndof_512.avif?width=360" width="100"
+                height="200">
+            <h1>trendy shoes</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://images.meesho.com/images/products/537909773/ftcqi_512.avif?width=360" width="100"
+                height="200">
+            <h1>trendy accesories</h1>
+            <p>$550</p>
+        </div>
+
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/9e/35/3b/9e353b27265b75ec9efedc3fb25d9027.jpg" width="100" height="200">
+            <h1>trendy sarees</h1>
+            <p>$550</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>About Us</h3>
+                <p>We create simple and modern websites using HTML, CSS, and JavaScript.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="kits wear.html">Kids</a></li>
+                    <li><a href="westerns.html">Western</a></li>
+                    <li><a href="sarees.html">Sarees</a></li>
+                    <li><a href="menswear.html">Men</a></li>
+                    <li><a href="womens wear.html">Women</a></li>
+                    <li><a href="cosmetics.html">Cosmetics</a></li>
+                    <li><a href="home appliances.html">Home appliances</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>Email: example@gmail.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Your Website | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

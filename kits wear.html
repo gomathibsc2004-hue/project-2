@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <title>kids wear</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: hsl(299, 96%, 11%);
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 6px 10px;
+        }
+
+        .nav-links a:hover {
+        
+            color: white;
+            border-radius: 4px;
+        }
+
+        .carousel {
+            width: 100%;
+            max-width: 1500px;
+            height: 400px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            animation: slide 9s infinite;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            33% {
+                transform: translateX(-50%);
+            }
+
+            66% {
+                transform: translateX(-200%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .shopping {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #f8f8f8;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .rates {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+            padding: 30px;
+        }
+
+        .rate1 {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rate1:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .rate1 img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .rate1 h1 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 12px 0 6px;
+            text-transform: capitalize;
+        }
+
+        .rate1 p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff3f6c;
+        }
+
+        .brands {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .brands img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .brands img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background-color: hsl(299, 96%, 11%);
+            color: #fff;
+            padding: 40px 0 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .footer-box h3 {
+            margin-bottom: 15px;
+            color: #f4b400;
+        }
+
+        .footer-box p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-box ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-box ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            background-color: hsl(299, 96%, 11%);
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-box {
+                width: 100%;
+            }
+        }
+
+        .icon {
+            color: #ccc;
+            display: flex;
+            gap: 15px;
+            font-size: 25px;
+        }
+
+        .icon i {
+            margin-right: 15px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 160px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: black;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar d-flex justify-content-between align-items-center">
+
+        <div class="logo"><img
+                src="https://static.toiimg.com/thumb/msid-100862147,width-1280,height-720,imgsize-4660,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg"
+                width="50" heiht="50"></div>
+
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="kits wear.html">Kids▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="Toys">Toys</a></li>
+                    <li><a href="Boys">boys</a></li>
+                    <li><a href="Girls">Girls</a></li>
+                    <li> <a href="Shirts">Babies</a></li>
+                    <li> <a href="Shirts">Clothing Sets</a></li>
+                    <li> <a href="Shirts">Frocks & Dresses</a></li>
+                    <li><a href="T-Shirt & Polos">Tshirts and polos</a></li>
+
+
+                </ul>
+
+            </li>
+            <li class="dropdown">
+                <a href="menswear.html">Men▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Summer tshirts</a></li>
+                    <li> <a href="toys">Shirts</a></li>
+                    <li> <a href="toys">Tshirt combos</a></li>
+
+                    <li> <a href="toys">Bottom wear jeans</a></li>
+
+                    <li> <a href="toys">Cargos/trowsers</a></li>
+                    <li> <a href="toys">dhotis/lungis</a></li>
+                </ul>
+
+            </li>
+            <li class="dropdown">
+                <a href="sarees.html">Sarees▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">All sarees</a></li>
+                    <li> <a href="toys">Georgette sarees</a></li>
+                    <li> <a href="toys">Chiffon sarees</a></li>
+                    <li> <a href="toys">Cotton sarees</a></li>
+                    <li> <a href="toys">Net sarees</a></li>
+                    <li> <a href="toys">Silk sarees</a></li>
+                    <li> <a href="toys">New collections</a></li>
+                    <li> <a href="toys">Bridal sarees</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="westerns.html">Westerns▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">All bottom wears</a></li>
+                    <li> <a href="toys">Jeans and jeggings</a></li>
+                    <li> <a href="toys">Palazzos</a></li>
+                    <li> <a href="toys">Trousers & pands</a></li>
+                    <li> <a href="toys">Leggings</a></li>
+                    <li> <a href="toys">Shorts and skirts</a></li>
+                    <li> <a href="toys">Tshirts</a></li>
+                    <li> <a href="toys"></a>Skirts</li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="home appliances.html">Home appliances▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Speakers</a></li>
+                    <li> <a href="toys">Cases and covers</a></li>
+                    <li> <a href="toys">Bluetooth earbuds</a></li>
+                    <li> <a href="toys">Wired earphone</a></li>
+                    <li> <a href="toys">Accessories mobile holders</a></li>
+                    <li> <a href="toys">Mobile chargers and cables</a></li>
+                    <li> <a href="toys">Power banks</a></li>
+                    <li> <a href="toys">Microphone</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="cosmetics.html">Cosmetics▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">LIpstick</a></li>
+                    <li> <a href="toys">Eye shadow and liner</a></li>
+                    <li> <a href="toys">Face makeup</a></li>
+                    <li> <a href="toys">Makeup kits and combos</a></li>
+                    <li> <a href="toys">Hair curlers</a></li>
+                    <li> <a href="toys">Nail makeup</a></li>
+                    <li> <a href="toys">Brushes and accessories</a></li>
+                    <li> <a href="toys">Hair removal</a></li>
+                    <li><a href="toys">Perfumes and more</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="womens wear.html">Womens▾</a>
+                <ul class="dropdown-menu">
+                    <li> <a href="toys">Tops and Tunics</a></li>
+                    <li> <a href="toys">DResses</a></li>
+                    <li> <a href="toys">Tshirts</a></li>
+                    <li> <a href="toys">Gowns</a></li>
+                    <li> <a href="toys">Tops and bottom sets</a></li>
+                    <li> <a href="toys">Shirts</a></li>
+                    <li> <a href="toys">Jumpsuits</a></li>
+                    <li> <a href="toys">New trends</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+
+        <div class="d-flex align-items-center gap-2">
+            <input type="text" class="form-control form-control-sm" placeholder="Search">
+
+        </div>
+        <div class="icon">
+            <i class="bi bi-person-circle"></i>
+
+            <i class="bi bi-cart-dash"></i>
+
+        </div>
+
+
+    </nav>
+    <div class="carousel">
+        <div class="slides">
+            <img src="https://i.pinimg.com/736x/94/d8/53/94d8533fa7db5c82265aca19f7002dd0.jpg">
+            <img src="https://i.pinimg.com/736x/93/7a/40/937a40967a7b6601e6962008c96dffeb.jpg">
+            <img src="https://i.pinimg.com/1200x/5b/26/cd/5b26cd4f4f68a736a052694d7ae0a49d.jpg">
+        </div>
+    </div>
+    <div class="shopping">
+        <span>🔔 7 days easy return</span>
+        <span>💵 Cash on delivery</span>
+        <span>📭 Lowest price</span>
+    </div>
+    <br>
+    <center>
+        <h4>GIRLS COLLECTIONS</h4>
+    </center>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/bf/40/9f/bf409f7dcae28b11f8c6557eebd2ba37.jpg" width="100" height="200">
+            <h1>trendy kids frocks</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/a6/0c/b1/a60cb115069827b5bdb98d6669956c08.jpg" width="100"
+                height="200">
+            <h1>trendy maxi tops</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/f1/47/ff/f147ff025344cd4a22dc62e11339ee2a.jpg" width="100" height="200">
+            <h1>trendy lehangas</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/0f/03/b2/0f03b2e46691bb380c7291c4c2d9e885.jpg" width="100"
+                height="200">
+            <h1>western tops</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/ca/2e/5c/ca2e5cf1ca227dbe612796de0dbadec6.jpg" width="100"
+                height="200">
+            <h1> stylish tops</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/88/22/34/8822343ad4f70ea0e81e6b28b5b5cb5e.jpg" width="100" height="200">
+            <h1> stylish skirts and tops</h1>
+            <p>$550</p>
+        </div>
+    </div>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/70/d1/fc/70d1fc1c01887c5e21fdd0366053b0f1.jpg" width="100"
+                height="200">
+            <h1>trendy casual dresses</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/cc/2b/8e/cc2b8ebd15452b0d34832a05755cac46.jpg" width="100"
+                height="200">
+            <h1>trendy elegant tops</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/88/52/70/8852703a408039469d5f5306aaabf804.jpg" width="100" height="200">
+            <h1>trendy elegant bridal kids lehanga</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/4b/ec/f8/4becf893657ce17ba27c244ce689afa3.jpg" width="100" height="200">
+            <h1>baby frock</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/27/5d/e5/275de5793fdb4627dcef1977a0423fe6.jpg" width="100" height="200">
+            <h1> onam outfits</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://www.numbersea.com/cdn/shop/files/ball-gownprincess-satin-tulle-knee-length-flower-girl-dress-480429.jpg?v=1742524060"
+                width="100" height="200">
+            <h1> stylish party wears</h1>
+            <p>$550</p>
+        </div>
+    </div>
+    <center>
+        <h4>BOYS COLLECTIONS</h4>
+    </center>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/26/c9/76/26c976db4073e66acfbf1f8492256c96.jpg" width="100"
+                height="200">
+            <h1> denim cool wears</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/50/1c/17/501c17d1b55c33ff17c45545a28034cf.jpg" width="100" height="200">
+            <h1>trendy casual wears</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/23/3c/89/233c898b2a44c0154cf4c07f5c24c64b.jpg" width="100"
+                height="200">
+            <h1>baby boy outfit</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/98/97/91/9897913c10cd4858ac34899423c635f0.jpg" width="100"
+                height="200">
+            <h1>baby boy front zeeper</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/24/d7/4c/24d74c7dfafee03b95d772185c450c73.jpg" width="100"
+                height="200">
+            <h1> winter outfit</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/af/0f/72/af0f7242241ef86bc32357f2a14f7c34.jpg" width="100"
+                height="200">
+            <h1> fionable outfit</h1>
+            <p>$550</p>
+        </div>
+    </div>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/e8/a8/37/e8a837e999327d945e9c26828aa4d704.jpg" width="100"
+                height="200">
+            <h1> boys autumn suits</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/44/2c/c8/442cc8d295b2ad5cae6b9ddbe0e6fc73.jpg" width="100"
+                height="200">
+            <h1>trendy hooties</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/5b/11/d5/5b11d5e8e3302e7b7ffda4c7eef053e6.jpg" width="100" height="200">
+            <h1>baby boy shein</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/73/c0/10/73c010b165c74fcc1013d085bc002704.jpg" width="100"
+                height="200">
+            <h1>casual style wears</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/87/fb/88/87fb885d43861a2abc81ef79fe1e1b0a.jpg" width="100"
+                height="200">
+            <h1> denim jackets</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/d0/93/75/d09375626f6db675d439fdee29b10fee.jpg" width="100" height="200">
+            <h1> casual outfit</h1>
+            <p>$550</p>
+        </div>
+    </div>
+    <br>
+    <center>
+        <h4>BABY CARE PRODUCTS</h4>
+    </center>
+    <br>
+    <marquee behavior="scroll" direction="left" scrollamount="6" loop="infinite">
+        <div class="brands">
+            <img src="https://i.pinimg.com/1200x/4c/f3/3c/4cf33cb1860120aafe229b73fc6e9593.jpg">
+            <img src="https://i.pinimg.com/736x/38/0c/f0/380cf05ee100a065c81a88bc7595990d.jpg">
+            <img src="https://i.pinimg.com/736x/08/48/52/08485235df9c637bde1731af20e62745.jpg">
+            <img src="https://i.pinimg.com/736x/b6/fd/97/b6fd9750f018aa6630bf72aea300a71e.jpg">
+            <img src="https://i.pinimg.com/736x/a7/fe/78/a7fe7866f986219232e7ce7344680014.jpg">
+            <img src="https://i.pinimg.com/1200x/98/1a/bb/981abb1dde479c21204e2a6451ddebb1.jpg">
+            <img src="https://i.pinimg.com/736x/40/c7/57/40c757a3588c5e8a55b7415e07d5c0e4.jpg">
+            <img src="https://i.pinimg.com/1200x/45/12/28/451228db0a13568b139a5ba899139a3f.jpg">
+            <img src="https://i.pinimg.com/1200x/83/9a/f5/839af5d46b64b78f1c08c887198dccf6.jpg">
+            <img src="https://i.pinimg.com/736x/27/23/01/2723018b87d5b2f5aa75fe581e8cf1e9.jpg">
+            <img src="https://i.pinimg.com/1200x/64/3c/fb/643cfb4e4d5c78239ea4315766660ba1.jpg">
+            <img src="https://i.pinimg.com/1200x/36/5e/8d/365e8d3099e7afbc0d68b75afaa28283.jpg">
+
+
+        </div>
+
+
+    </marquee>
+    <br>
+    <CENTER>
+        <h4>TOYS COLLECTIONS</h>
+    </CENTER>
+    <br>
+    <div class="rates">
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/02/c2/e1/02c2e1487a00cffb487df576ecde75d9.jpg" width="100" height="200">
+            <h1> unicon toys</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/d6/c0/a6/d6c0a65c71f2d7b58d56e7b0b37fa618.jpg" width="100" height="200">
+            <h1>baby cars</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/4d/c6/f4/4dc6f44b5a6e0be243f91134f8c527c2.jpg" width="100" height="200">
+            <h1>baby balance bikes</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/1200x/36/73/af/3673afa7af61764d2694dcc18baf8583.jpg" width="100"
+                height="200">
+            <h1>baby playing phone</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/69/85/35/6985350e950f3764ebd6a8cff2225aca.jpg" width="100" height="200">
+            <h1> baby barbey toys</h1>
+            <p>$550</p>
+        </div>
+        <div class="rate1">
+            <img src="https://i.pinimg.com/736x/2a/7b/e8/2a7be886ce2e787c9ec4d668ab20a947.jpg" width="100" height="200">
+            <h1> baby music playing toy</h1>
+            <p>$550</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>About Us</h3>
+                <p>We create simple and modern websites using HTML, CSS, and JavaScript.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="kits wear.html">Kids</a></li>
+                    <li><a href="westerns.html">Western</a></li>
+                    <li><a href="sarees.html">Sarees</a></li>
+                    <li><a href="menswear.html">Men</a></li>
+                    <li><a href="womens wear.html">Women</a></li>
+                    <li><a href="cosmetics.html">Cosmetics</a></li>
+                    <li><a href="home appliances.html">Home appliances</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <p>Email: example@gmail.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Your Website | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+
+
+
+</body>
+
+</html>
